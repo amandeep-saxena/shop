@@ -27,7 +27,9 @@ app.use(db);
 
 // mongodb://127.0.0.1:27017/dummy
 
-mongoose.connect("mongodb+srv://aman12:1vcnqNhKU1ORADCk@cluster0.j2jkj8p.mongodb.net", {
+const MONGODB = "mongodb+srv://aman12:1vcnqNhKU1ORADCk@cluster0.j2jkj8p.mongodb.net"
+
+mongoose.connect(MONGODB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
