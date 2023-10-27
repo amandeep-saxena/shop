@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-
-
-
-const TASK = require("./model/user")
-
-
 var bodyParser = require('body-parser')
+
+const  Prodata = require("./router/product")
+
+// const TASK = require("./model/user")
+const mongoose = require("mongoose");
+
 
 
 
@@ -15,9 +15,19 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.use(Prodata);
 
-const mongoose = require("mongoose");
-mongoose.connect('mongodb://127.0.0.1:27017/dummy', {
+
+
+
+
+
+
+// const mongodb = "mongodb+srv://saxenaaman903:RvKiqu4uwdPc6oU7@cluster0.j2jkj8p.mongodb.net/"
+
+// mongodb://127.0.0.1:27017/dummy
+
+mongoose.connect("mongodb://127.0.0.1:27017/dummy", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -27,7 +37,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/dummy', {
 
 
 
-app.get('/123' ,async(req,res) =>{
+
+
+
+
+app.get('/123', async (req, res) => {
     try {
         const tasks = await TASK.find(req.body);
         res.status(200).json({ tasks })
@@ -40,7 +54,7 @@ app.get('/123' ,async(req,res) =>{
 
 
 
-app.post('/app1' ,async(req,res) =>{
+app.post('/app1', async (req, res) => {
     try {
         const task = await TASK.create(req.body);
         res.status(201).json({ task });
@@ -51,6 +65,6 @@ app.post('/app1' ,async(req,res) =>{
 })
 
 
-app.listen(3000, console.log("hii done"));
+app.listen(4000, console.log("hii done"));
 
 
