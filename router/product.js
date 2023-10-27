@@ -1,6 +1,6 @@
 const express = require("express");
 
-const Prodata = express.Router();
+const db = express.Router();
 
 
 const { adddata, findProduct ,findbyId } = require("../controller/product");
@@ -10,10 +10,10 @@ const { adddata, findProduct ,findbyId } = require("../controller/product");
 
 
 
-Prodata.post("/add", adddata);
+db.post("/add", adddata);
 
-Prodata.get("/findData", findProduct);
-Prodata.post("/items/:id", findbyId);
+db.get("/findData", findProduct);
+db.post("/items/:id", findbyId);
 
 
-module.exports = Prodata
+module.exports = db

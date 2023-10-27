@@ -2,15 +2,14 @@ const Product = require("../model/product");
 
 
 
-const adddata = (req, res) => {
+const adddata = async(req, res) => {
     try {
         console.log(req.body)
-
-        const pro = Product.create(req.body);
+        const pro = await Product.create(req.body);
         console.log(pro)
         res.send(pro)
     } catch (error) {
-        return console.log(error)
+     console.log(error)
     }
     // try {
 

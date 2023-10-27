@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 var bodyParser = require('body-parser')
 
-const  Prodata = require("./router/product")
+const  db = require("./router/product")
 
 // const TASK = require("./model/user")
 const mongoose = require("mongoose");
@@ -15,23 +15,26 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use(Prodata);
+app.use(db);
+
+
+
+// mongodb+srv://saxenaaman903:aman12@Saxena@cluster0.j2jkj8p.mongodb.net/
 
 
 
 
-
-
-
-// const mongodb = "mongodb+srv://saxenaaman903:RvKiqu4uwdPc6oU7@cluster0.j2jkj8p.mongodb.net/"
 
 // mongodb://127.0.0.1:27017/dummy
 
-mongoose.connect("mongodb://127.0.0.1:27017/dummy", {
+mongoose.connect("mongodb+srv://aman12:1vcnqNhKU1ORADCk@cluster0.j2jkj8p.mongodb.net", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    .then(() => console.log('Connected! successfull-------- '));
+    .then(() => console.log('Connected! successfull-------- '))
+    .catch((err)=>{
+        console.log(err)
+    })
 
 
 
@@ -65,6 +68,6 @@ app.post('/app1', async (req, res) => {
 })
 
 
-app.listen(4000, console.log("hii done"));
+app.listen(5000, console.log("hii done"));
 
 
