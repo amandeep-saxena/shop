@@ -3,12 +3,20 @@ mongoose.set('strictQuery', true);
 
 
 const userSchema = new mongoose.Schema({
-  phoneNumber: String,
-  otp: String,
+  Name : {
+    type : String
+  },
+  Email :{
+    type :String
+  } ,
+
+  Password : {
+    type : String
+  }
 });
 
 
-module.exports = new mongoose.model("User", userSchema);
+module.exports = new mongoose.model("ADMIN", userSchema);
 
 
 

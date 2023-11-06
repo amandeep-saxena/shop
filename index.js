@@ -7,7 +7,7 @@ const  db = require("./router/product")
 // const TASK = require("./model/user")
 
 
-const router =require('./router/user')
+const router = require("../app/router/user")
 
 
 require('dotenv').config()
